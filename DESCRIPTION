@@ -1,0 +1,32 @@
+Package: binsmlr
+Type: Package
+Title: Creates Heterogenous Bins across a range of Ordinal values
+Version: 0.0.0.9000
+URL: https://github.com/rrunner/binsmlr
+BugReports: https://github.com/rrunner/binsmlr/issues
+Authors@R: person("rrunner", email = "therainbowrunner@gmail.com", 
+  role = c("cre", "aut"))
+Description: The objective with the package is to perform a statistical optimal 
+    binning of ordinal values taking the default rate of each bin in 
+    consideration. The bins produced should be homogenous within and 
+    heterogenous across bins in terms of the default risk. A binning approach, 
+    as a data transformation, is generally feasible to credit risk portfolios 
+    having a relatively large number of defaults. A prerequisite is that each 
+    observation is assigned an ordinal value such as score or rating 
+    etc., that indicates the relative default risk as proposed by the rank 
+    ordering model. Also, a default indicator is required. 
+    Binning is common in different credit risk applications.
+    See the binsmlr github page for more information. 
+Depends: R (>= 3.6)
+Imports: 
+    dplyr (>= 1.0.0),
+    purrr (>= 0.3.4),
+    rlang (>= 0.4.6),
+    stats (>= 3.6.3)
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+RoxygenNote: 7.1.0
+Suggests: 
+    testthat
