@@ -1,5 +1,5 @@
 # print method for objects of class bin
-print.bin <- function(x) {
+print.bin <- function(x, ...) {
   cat(paste0("Bin ", if (x[["is_merged"]]) "(merged)"), "\n")
   cat("---", "\n\n")
   cat("Obligors:", "\t", x[["num_obl"]], "\n")
