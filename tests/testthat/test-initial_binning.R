@@ -27,7 +27,7 @@ context("Initial binning")
                            114,    1,
                            111,    1)
 
-test_that("Function prepare_data()", {
+test_that("prepare_data(): aggregation and variable names in output", {
   .pd_out <- prepare_data(.df, "ord_val", "def")
 
   expect_equal(nrow(.pd_out), 21)
@@ -39,7 +39,7 @@ test_that("Function prepare_data()", {
   rm(.pd_out)
 })
 
-test_that("Function create_initial_bins()", {
+test_that("create_initial_bins(): length and values", {
   .init_bins <- create_initial_bins(.df, 5, "ord_val", "def")
 
   expect_equal(length(.init_bins), 2)
@@ -56,14 +56,7 @@ test_that("Function create_initial_bins()", {
   expect_equal(.init_bins[[2]]$max_score, 120)
   expect_equal(.init_bins[[2]]$is_merged, TRUE)
 
-  .df2 <- dplyr::mutate(.df, def = as.character(def))
-  expect_error(create_initial_bins(.df2, 5, "ord_val", "def"),
-               "'default_ind' must be of type integer or type double")
-  .df2 <- dplyr::mutate(.df, def = as.integer(def))
-  expect_identical(create_initial_bins(.df, 5, "ord_val", "def"),
-                   create_initial_bins(.df2, 5, "ord_val", "def"))
-
-  rm(.init_bins, .df2)
+  rm(.init_bins)
 })
 
 rm(.df)

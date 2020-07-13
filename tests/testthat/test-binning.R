@@ -1,6 +1,6 @@
 context("Binning")
 
-test_that("Function merge_list_of_bins()", {
+test_that("merge_list_of_bins(): merge functionality", {
   .b <- list(
           bin(num_obl = 100, num_def = 5, min_score = 30, max_score = 60),
           bin(num_obl = 200, num_def = 15, min_score = 61, max_score = 80)
@@ -28,7 +28,7 @@ test_that("Function merge_list_of_bins()", {
   rm(.b, .m)
 })
 
-test_that("Function reduce_bins()", {
+test_that("reduce_bins(): verify reduction logic", {
   .b <- list(
           bin(num_obl = 100, num_def = 5, min_score = 30, max_score = 60),
           bin(num_obl = 200, num_def = 10, min_score = 61, max_score = 80),
@@ -62,14 +62,10 @@ test_that("Function reduce_bins()", {
   expect_equal(length(reduce_bins(.b, 4, 0.01, "chisq.test")), 4)
   expect_equal(length(reduce_bins(.b, 3, 0.01, "chisq.test")), 3)
 
-  expect_error(reduce_bins(.b, 1, 0.01, "chisq.test"))
-  expect_error(reduce_bins(.b, 0, 0.01, "chisq.test"))
-  expect_error(reduce_bins(.b, -1, 0.01, "chisq.test"))
-
   rm(.b, .rc, .rf)
 })
 
-test_that("Function autobin()", {
+test_that("autobin(): verify automatic binning", {
   .a <- autobin(bin_data, 30, "score", "default", 7, 0.01)
   .b <- create_initial_bins(bin_data, 30, "score", "default")
   .b <- reduce_bins(.b, 7, 0.01)

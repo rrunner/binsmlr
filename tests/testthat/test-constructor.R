@@ -1,24 +1,24 @@
 context("Constructor")
 
-test_that("Default rate, function dr()", {
+test_that("dr(): default rate", {
   expect_equal(dr(0, 10), 0)
   expect_equal(dr(5, 10), 0.5)
   expect_equal(dr(10, 10), 1)
 })
 
-test_that("Odds ratio, function odds()", {
+test_that("odds(): odds ratio", {
   expect_equal(odds(0), 0)
   expect_equal(odds(0.5), 1)
   expect_equal(odds(1), Inf)
 })
 
-test_that("Mid score, function midscore()", {
+test_that("midscore(): mid score", {
   expect_equal(midscore(10, 20), 15)
   expect_equal(midscore(10, 11), 10.5)
   expect_equal(midscore(10.5, 13), 11.75)
 })
 
-test_that("Helper constructor, function bin()", {
+test_that("bin(): helper constructor", {
 
   .b <- bin(num_obl = 100, num_def = 5, min_score = 30, max_score = 60)
 

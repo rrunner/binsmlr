@@ -1,17 +1,19 @@
 context("Utilities")
 
-test_that("Function strictly_between()", {
+test_that("strictly_between(): pass scalars", {
   expect_equal(strictly_between(0, -1, 1), TRUE)
   expect_equal(strictly_between(-1, -1, 1), FALSE)
   expect_equal(strictly_between(1, -1, 1), FALSE)
   expect_equal(strictly_between(-2, -1, 1), FALSE)
   expect_equal(strictly_between(2, -1, 1), FALSE)
+})
 
+test_that("strictly_between(): pass vector", {
   expect_equal(strictly_between(c(-2, -1, -0.5, 0, 0.5, 1, 2), -1, 1),
                c(FALSE, FALSE, TRUE, TRUE, TRUE, FALSE, FALSE))
 })
 
-test_that("Function is_monotonic()", {
+test_that("is_monotonic(): equality and output", {
 
   .b1 <- list(
     bin(num_obl = 100, num_def = 5,  min_score = 30, max_score = 60),
