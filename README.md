@@ -7,6 +7,8 @@
 
 [![Travis build
 status](https://travis-ci.com/rrunner/binsmlr.svg?branch=master)](https://travis-ci.com/rrunner/binsmlr)
+[![Codecov test
+coverage](https://codecov.io/gh/rrunner/binsmlr/branch/master/graph/badge.svg)](https://codecov.io/gh/rrunner/binsmlr?branch=master)
 <!-- badges: end -->
 
 ## Overview

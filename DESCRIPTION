@@ -29,4 +29,5 @@ LazyData: true
 ByteCompile: true
 RoxygenNote: 7.1.0
 Suggests: 
-    testthat
+    testthat,
+    covr
